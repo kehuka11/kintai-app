@@ -5,8 +5,9 @@ services:
       MYSQL_ROOT_PASSWORD: Password123
       MYSQL_USER: kintai
       MYSQL_PASSWORD: kintai
+      MYSQL_DATABASE: app
     ports:
-      - "3307:3307"
+      - "3307:3306"
     volumes:
       - ./docker/mysql/init:/docker-entrypoint-initdb.d
     healthcheck:
