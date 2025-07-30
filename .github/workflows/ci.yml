@@ -31,15 +31,15 @@ jobs:
             sleep 1
           done
 
-      - name: Set up MySQL
-        run: |
-          bundle exec rails db:prepare
-
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
+
+      - name: Set up MySQL
+        run: |
+          bundle exec rails db:prepare
 
       - name: Run tests
         env:
