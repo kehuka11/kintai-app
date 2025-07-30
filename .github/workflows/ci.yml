@@ -27,19 +27,19 @@ jobs:
       - name: Wait for MySQL to be ready
         run: |
           until mysqladmin ping -h "127.0.0.1" -P 3307 --silent; do
-          echo "Waiting for MySQL..."
-          sleep 1
-        done
-
-      - name: Set up MySQL
-        run: |
-          bundle exec rails db:prepare
+            echo "Waiting for MySQL..."
+            sleep 1
+          done
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
+
+      - name: Set up MySQL
+        run: |
+          bundle exec rails db:prepare
 
       - name: Run tests
         env:
