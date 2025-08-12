@@ -7,3 +7,8 @@ server-up:
 
 server-down:
 	bin/rails s -e development
+
+.PHONY: test
+
+test:
+	bundle exec rspec
