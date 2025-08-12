@@ -1,8 +1,8 @@
 module Application
   class AppUserServiceImpl < AppUserService
-    include Import[
-      repo: 'infrastructure.database.app_user.app_user_repository_impl'
-    ]
+    def initialize(repo: Infrastructure::Database::AppUser::AppUserRepositoryImpl.new)
+      @repo = repo
+    end
 
 
     def register(cmd)
@@ -13,7 +13,7 @@ module Application
         is_first_register: cmd.is_first_register,
         password: 'password'
       )
-      repo.save(user)
+      @repo.save(user)
       user
     end
   end
