@@ -2,7 +2,8 @@ module Api
   module V1
     class AppUsersController < Api::V1::ApplicationController
       def create
-        appuser_service = AppContainer['application.app_user_service_impl']
+        app_user_repository = Infrastructure::Database::AppUser::AppUserRepositoryImpl.new
+        appuser_service = Application::AppUserServiceImpl.new(repo: app_user_repository)
         req = Userinterface::AppUser::AppUserCreateRequest.new(user_params)
         return render json: { errors: req.errors.full_messages }, status: :unprocessable_entity unless req.valid?
 
