@@ -10,6 +10,10 @@ module Kintai
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
+    # I18n設定
+    config.i18n.default_locale = :ja
+    config.i18n.available_locales = [:ja, :en]
+    config.i18n.fallbacks = { ja: [:ja, :en], en: [:en] }
     # エラー時のデフォルトテンプレートを設定
     config.exceptions_app = ->(env) { ErrorsController.action(:show).call(env) }
 
@@ -17,6 +21,7 @@ module Kintai
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
+    config.autoload_paths << Rails.root.join('app', 'appuser')
 
     # Configuration for the application, engines, and railties goes here.
     #

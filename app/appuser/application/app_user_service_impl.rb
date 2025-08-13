@@ -13,8 +13,13 @@ module Application
         is_first_register: cmd.is_first_register,
         password: 'password'
       )
+      
       @repo.save(user)
+
       user
+
+      rescue => e
+        ExceptionTrancelate.translate(e)
     end
   end
 end

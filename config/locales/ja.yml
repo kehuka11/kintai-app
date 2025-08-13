@@ -1,0 +1,42 @@
+# config/locales/ja.yml
+ja:
+  errors:
+    codes:
+      internal_server_error: "INTERNAL_SERVER_ERROR"
+      system_error: "SYSTEM_ERROR"
+      external_service_error: "EXTERNAL_SERVICE_ERROR"
+      business_error: "BUSINESS_RULE_VIOLATION"
+      validation_error: "VALIDATION_ERROR"
+      database_connection_error: "DATABASE_CONNECTION_ERROR"
+      database_error: "DATABASE_ERROR"
+      domain_validation_error: "DOMAIN_VALIDATION_ERROR"
+      required_field_missing: "REQUIRED_FIELD_MISSING"
+      unknown_error: "UNKNOWN_ERROR"
+    
+    messages:
+      internal_server_error: "システムエラーが発生しました"
+      system_error: "システムエラーが発生しました"
+      external_service_error: "外部サービスに接続できませんでした"
+      business_error: "ビジネスルールに違反しています"
+      validation_error: "入力内容に誤りがあります"
+      database_connection_error: "データベースに接続できませんでした"
+      database_error: "データベースエラーが発生しました"
+      domain_validation_error: "入力内容に誤りがあります"
+      required_field_missing: "必須項目に入力がありません"
+      unknown_error: "システムエラーが発生しました"
+    
+    details:
+      validation:
+        email_invalid_format: "メールアドレスの形式が正しくありません"
+        password_too_short: "パスワードは8文字以上で入力してください"
+        id_required: "IDは必須です"
+        name_required: "名前は必須です"
+      
+      services:
+        database: "データベース"
+        external_api: "外部API"
+      
+      error_types:
+        connection: "接続エラー"
+        timeout: "タイムアウト"
+        validation: "バリデーションエラー"

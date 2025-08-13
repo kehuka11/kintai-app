@@ -1,5 +1,5 @@
 require 'rails_helper'
-# require_relative '../../../app/appuser/domain/exception/error'
+require_relative '../../../app/appuser/domain/exception/error'
 
 RSpec.describe Domain::AppUser do
   describe 'normal case' do
