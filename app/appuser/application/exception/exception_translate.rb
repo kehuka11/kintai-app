@@ -5,6 +5,7 @@ module Application
         def self.translate(exception)
           case exception
           when ActiveRecord::ConnectionNotEstablished, ActiveRecord::ConnectionTimeoutError
+            Rails.logger.error(exception)
             raise ExternalServiceError.new(
               code: 'DATABASE_CONNECTION_ERROR',
               message: 'Database connection failed',
@@ -16,6 +17,7 @@ module Application
             )
   
           when ActiveRecord::ActiveRecordError
+            Rails.logger.error(exception)
             raise SystemError.new(
               code: 'DATABASE_ERROR',
               message: 'Database error occurred',
@@ -42,7 +44,7 @@ module Application
               cause: exception
             )
             
-          when Domain::Exception::BusinessViolation
+          when Domain::Exception::BusinessRuleViolation
             raise BusinessError.new(
               code: 'BUSINESS_RULE_VIOLATION',
               message: 'Business rule violation',

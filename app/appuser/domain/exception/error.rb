@@ -9,9 +9,5 @@ module Domain
         end
     end
 
-    class ValidationError       < Error; end
-    class BusinessRuleViolation < Error; end
-    class InvariantViolation    < Error; end
-    class NotFound              < Error; end
   end
 end
